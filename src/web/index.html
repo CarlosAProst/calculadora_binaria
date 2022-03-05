@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title></title>
+</head>
+<body>
+    <label for="decimal-binario">de Decimal a Binario</label>
+    
+    <form action="" id="conversor">
+        <input type="text" id="valor-a-convertir" placeholder="Valor convertir..."><br/>
+        <input type="radio" class="tipo" name="tipo-de-conversion" value="BIN">
+        <label for="binario">Binario</label><br/>
+        <input type="radio" class="tipo" name="tipo-de-conversion" value="DEC">
+        <label for="decimal">Decimal</label><br/>
+        <input type="radio" class="tipo" name="tipo-de-conversion" value="HEX">
+        <label for="hexadecimal">Hexa</label><br/>
+        <input type="radio" class="tipo" name="tipo-de-conversion" value="OCTAL">
+        <label for="octal">Octal</label><br/>
+        <button id="convert">Convertir</button>
+    </form>
+    
+    <div id="resultado"></div>
+    
+    
+    <!--Archivo Javascript-->
+    <script src="./js/script.js"></script>
+</body>
+</html>

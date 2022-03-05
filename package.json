@@ -1,0 +1,31 @@
+{
+  "name": "calculadora_binaria",
+  "version": "1.0.0",
+  "description": "Conversor de decimal a binario",
+  "main": "./src/index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CarlosAProst/calculadora_binaria.git"
+  },
+  "keywords": [
+    "calculador",
+    "binaria",
+    "conversor",
+    "a",
+    "binario"
+  ],
+  "author": "Carlos A. Prost",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CarlosAProst/calculadora_binaria/issues"
+  },
+  "homepage": "https://github.com/CarlosAProst/calculadora_binaria#readme",
+  "dependencies": {
+    "body-parser": "^1.19.2",
+    "express": "^4.17.3",
+    "nodemon": "^2.0.15"
+  }
+}
