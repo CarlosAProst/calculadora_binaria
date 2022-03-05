@@ -34,7 +34,6 @@ function conversionDeBinario(valor){
     <ul>
         <li>DEC: ${convertirADecimal(valor)}</li>
         <li>HEXA: ${convertirAHexadecimal(valor)}</li>
-        <li>OCT: ${convertirAOctal(valor)}</li>
     </ul>
     `;
 
@@ -54,7 +53,23 @@ function convertirADecimal(valor){
 }
 function convertirAHexadecimal(valor){
     let valores = valor.split('');
-    let hex = 0;
+    while(valores.length < 8 || valores.length % 2 != 0){
+        valores.unshift('0');
+    }
+    let array = [];
+    let hexParse = '';
+    let hex = '';
+    for(let elem of valores){
+        if(array.length == 4){
+            hexParse = convertirADecimal(array.join(''));
+        }
+        array.push(elem);
+        hex += hexParse;
+        console.log(hex);
+    }
+    
+
+    /* let hex = 0;
     let i = valores.length -1;
     for(let elem of valores){
         if(elem == '1'){
@@ -62,5 +77,5 @@ function convertirAHexadecimal(valor){
         }
         i--;
     }
-    return(hex);
+    return(hex); */
 }
