@@ -8,10 +8,11 @@
     <title></title>
 </head>
 <body>
-    <label for="decimal-binario">de Decimal a Binario</label>
-    
+    <h3>Conversor de unidades numéricas</h3>
     <form action="" id="conversor">
         <input type="text" id="valor-a-convertir" placeholder="Valor convertir..."><br/>
+        <fieldset>
+            <legend>Base del número</legend>
         <input type="radio" class="tipo" name="tipo-de-conversion" value="BIN">
         <label for="binario">Binario</label><br/>
         <input type="radio" class="tipo" name="tipo-de-conversion" value="DEC">
@@ -20,6 +21,7 @@
         <label for="hexadecimal">Hexa</label><br/>
         <input type="radio" class="tipo" name="tipo-de-conversion" value="OCTAL">
         <label for="octal">Octal</label><br/>
+        </fieldset>
         <button id="convert">Convertir</button>
     </form>
     

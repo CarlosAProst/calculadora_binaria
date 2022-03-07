@@ -9,12 +9,16 @@ form.addEventListener('submit', (e)=>{
     e.preventDefault();
     if(tipoDeConversión(conversion) == 'BIN'){
         conversionDeBinario(valor.value);
+        valor.value = '';
     }else if(tipoDeConversión(conversion) == 'DEC'){
         conversionDeDecimal(valor.value);
+        valor.value = '';
     }else if(tipoDeConversión(conversion) == 'HEX'){
-        conversionDeHex(valor.value);
+        conversionDeHexa(valor.value);
+        valor.value = '';
     }else if(tipoDeConversión(conversion) == 'OCTAL'){
         conversionDeOctal(valor.value);
+        valor.value = '';
     }
     
     
@@ -29,53 +33,94 @@ function tipoDeConversión(array) {
 }
 
 function conversionDeBinario(valor){
-
     mostrar.innerHTML =`
-    <ul>
-        <li>DEC: ${convertirADecimal(valor)}</li>
-        <li>HEXA: ${convertirAHexadecimal(valor)}</li>
-    </ul>
+    <table>
+        <thead>
+            <tr>
+                <th>Decimal</th>
+                <th>Binario</th>
+                <th>hexadecimal</th>
+                <th>Octal</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>${parseInt(valor,2)}</td>
+                <td>${valor}</td>
+                <td>${parseInt(valor,2).toString(16).toUpperCase()}</td>
+                <td>${parseInt(valor,2).toString(8)}</td>
+            </tr>
+        </tbody>
+    </table>
     `;
-
 }
 
-function convertirADecimal(valor){
-    let valores = valor.split('');
-    let decimal = 0;
-    let i = valores.length -1;
-    for(let elem of valores){
-        if(elem == '1'){
-            decimal += 2**i;
-        }
-        i--;
-    }
-    return(decimal);
+function conversionDeDecimal(valor){
+    valor = parseInt(valor);
+    mostrar.innerHTML =`
+    <table>
+        <thead>
+            <tr>
+                <th>Decimal</th>
+                <th>Binario</th>
+                <th>hexadecimal</th>
+                <th>Octal</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>${valor}</td>
+                <td>${valor.toString(2)}</td>
+                <td>${(valor.toString(16)).toUpperCase()}</td>
+                <td>${valor.toString(8)}</td>
+            </tr>
+        </tbody>
+    </table>
+    `;
 }
-function convertirAHexadecimal(valor){
-    let valores = valor.split('');
-    while(valores.length < 8 || valores.length % 2 != 0){
-        valores.unshift('0');
-    }
-    let array = [];
-    let hexParse = '';
-    let hex = '';
-    for(let elem of valores){
-        if(array.length == 4){
-            hexParse = convertirADecimal(array.join(''));
-        }
-        array.push(elem);
-        hex += hexParse;
-        console.log(hex);
-    }
-    
 
-    /* let hex = 0;
-    let i = valores.length -1;
-    for(let elem of valores){
-        if(elem == '1'){
-            hex += 2**i;
-        }
-        i--;
-    }
-    return(hex); */
+function conversionDeHexa(valor){
+    mostrar.innerHTML =`
+    <table>
+        <thead>
+            <tr>
+                <th>Decimal</th>
+                <th>Binario</th>
+                <th>hexadecimal</th>
+                <th>Octal</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>${parseInt(valor, 16)}</td>
+                <td>${parseInt(valor, 16).toString(2)}</td>
+                <td>${valor}</td>
+                <td>${parseInt(valor, 16).toString(8)}</td>
+            </tr>
+        </tbody>
+    </table>
+    `;
+}
+
+function conversionDeOctal(valor){
+    mostrar.innerHTML =`
+    <table>
+        <thead>
+            <tr>
+                <th>Decimal</th>
+                <th>Binario</th>
+                <th>hexadecimal</th>
+                <th>Octal</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>${parseInt(valor, 8)}</td>
+                <td>${parseInt(valor, 8).toString(2)}</td>
+                <td>${parseInt(valor, 8).toString(16).toUpperCase()}</td>
+                <td>${valor}</td>
+            </tr>
+        </tbody>
+    </table>
+    `;
 }
